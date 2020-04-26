@@ -20,7 +20,7 @@ This will run the "Game of Life" for a 2D Array Universe of square Cells, using 
 
 When this runs, it will write-out an HTML file with an SVG written-out for the grid. This is definitely not efficient, but it's an extremely simple way to write-out a visual representation of the game's "Universe" at each tick-state.
 
-The committed version here is set for a `100x100` grid with 50 ticks. Each written-out (read: generated) "frame" is around `700kB`, which is quite a lot for what should be `10kB` of data. Part of this is because for visual effect, each Cell is set to be rendered as a `5px`-by-`5px` square, so there's a logical factor of 25, but really the filesize is because of all the characters used to define an SVG `<rect />` tag per Cell, along with the other requried minimal HTML.
+The committed version here is set for a `100x100` grid with 50 ticks. Each written-out (read: generated) "frame" is around `700kB`, which is quite a lot for what should be `10kB` of data. Part of this is because for visual effect, each Cell is set to be rendered as a `5px`-by-`5px` square, so there's a logical factor of 25, but really the filesize is because of all the `8`-bit characters used to define an SVG `<rect />` tag per Cell, along with the other required minimal HTML.
 
 Any SVG compatible web-browser should be able to render the generated frames. Unfortunately, automated animated is not (yet) supported.
 
