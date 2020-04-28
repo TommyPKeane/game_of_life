@@ -39,10 +39,10 @@ class TransitionRuleset(object):
       if (cell_obj.state_crnt == STATES.LIVE):
          if (live_neighbours < 2):
             next_state = STATES.DEAD;  # Lonely
-            print("Cell Died! {0} | Neighbours: {1}".format(cell_obj.location, neighbour_states,))
+            # print("Cell Died! {0} | Neighbours: {1}".format(cell_obj.location, neighbour_states,))
          elif (live_neighbours > 3):
             next_state = STATES.DEAD;  # Smothered
-            print("Cell Died! {0} | Neighbours: {1}".format(cell_obj.location, neighbour_states,))
+            # print("Cell Died! {0} | Neighbours: {1}".format(cell_obj.location, neighbour_states,))
          elif (live_neighbours in (2, 3)):
             next_state = STATES.LIVE;  # Comfortable
          else:
@@ -51,7 +51,7 @@ class TransitionRuleset(object):
       elif (cell_obj.state_crnt == STATES.DEAD):
          if (live_neighbours == 3):
             next_state = STATES.LIVE;  # Mazel Tov!
-            print("Cell Born! {0} | Neighbours: {1}".format(cell_obj.location, neighbour_states))
+            # print("Cell Born! {0} | Neighbours: {1}".format(cell_obj.location, neighbour_states))
          else:
             next_state = STATES.DEAD;  # Stasis
          # fi
