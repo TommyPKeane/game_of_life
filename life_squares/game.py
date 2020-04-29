@@ -28,7 +28,7 @@ class Game(object):
          array_hght,
          live_cells,
       );
-      self.writer_obj = writer.CursesWriter();
+      self.writer_obj = writer.CursesWriter(array_wdth, array_hght,);
       return None;
    # fed
 
