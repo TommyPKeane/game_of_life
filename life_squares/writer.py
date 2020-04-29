@@ -26,19 +26,28 @@ class CursesWriter(Writer):
    """Universe Output Writer to Terminal using `curses`."""
    RENDER_CHARACTERS = {
       cell.STATES.LIVE: "■",
-      cell.STATES.DEAD: "□",
+      cell.STATES.DEAD: "_",
    };
+
+   aspect_ratio = [3, 1];  # [w, h]
 
    screen_obj = typing.Optional[str];
 
-   def __init__(self, ):
+   def __init__(self, window_w, window_h,):
       self.screen_obj = curses.initscr();
+      self.screen_obj.resize(
+         window_h * self.aspect_ratio[1],
+         window_w * self.aspect_ratio[0],)
       return None;
    # fed
 
    def render(self, universe_cells, crnt_tick, length,):
       for (loc, cell_obj) in universe_cells.items():
-         self.screen_obj.addstr(loc[0], loc[1]*2, self.RENDER_CHARACTERS[cell_obj.state_crnt])
+         self.screen_obj.addstr(
+            loc[1] * self.aspect_ratio[1],  # y
+            loc[0] * self.aspect_ratio[0],  # x
+            self.RENDER_CHARACTERS[cell_obj.state_crnt]
+         )
       # rof
       self.screen_obj.refresh()
       curses.napms(250)
